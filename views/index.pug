@@ -1,0 +1,89 @@
+
+html
+  head
+    title=title
+    link(rel='stylesheet', href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel='stylesheet', type='text/css', href='feed.css')
+
+    
+
+
+  body
+    block content
+      if (success!='')
+          .alert.alert-success(role='alert')
+              | Success!
+              | #{success}
+      h1 Filter Employee Records
+      div.container
+        div#filter-box
+          form(role='form' method='post' action='/search/')
+            div.form-group
+              label(for='name') By Name:
+              input#name.form-control(type='text', placeholder='Search By Name' name='filtername')
+            div.form-group
+              label(for='email') Email:
+              input#email.form-control(type='email', placeholder='Search By Email' name='fileremail')
+            button.btn.btn-primary(type="submit", name="submit",value="Submit") Search
+
+     
+      h1 #{title}
+      div#table-box
+      table.table.table-bordered
+          thead 
+              div 
+                  tr 
+                    th Name 
+                    th Email 
+                    th Etype 
+                    th Hourly Rate 
+                    th Total Hours 
+                    th Action
+          tbody
+        
+              if records.length>0
+                each user in records
+                  tr 
+                    td= user.name
+                    td= user.email
+                    td= user.etype
+                    td= user.hourlyrate
+                    td= user.totalHour
+                    td
+                      a.btn.btn-primary.btn-xs(href=`/edit/${user._id}`)
+                        i.fa.fa-edit
+                      a.btn.btn-danger.btn-xs(href=`/delete/${user._id}`)
+                        i.fa.fa-trash
+              else 
+                  tr 
+                    td(colspan="5") No Record Found
+      div.container  
+       h1 Employee Record Form       
+       form(role='form' method='post' action='/')
+          div.form-group
+              label(for='name') Name:
+              input#name.form-control(type='text', placeholder='name' name='name')
+          div.form-group
+              label(for='email') Email:
+              input#email.form-control(type='email', placeholder='name@email.com' name='email')
+          div.form-group
+              label(for='etype') Etype:
+              input#eype.form-control(type='text', placeholder='Enter employee type' name='etype')
+          div.form-group
+              label(for='hourlyrate') Hourly Rate:
+              input#hourlyrate.form-control(type='number', placeholder='Enter Hourly Rate' name='hourlyrate')
+          div.form-group
+              label(for='totalHour') Total Hour:
+              input#totalHour.form-control(type='number', placeholder='Enter Total Hour.' name='totalHour')
+          div.form-group
+               a.btn.btn-primary(href='/upload') Upload Image
+          button.btn.btn-primary(type="submit", name="Submit",value="Submit") Submit
+          
+         
+          
+    

@@ -1,0 +1,103 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  color: #193f4e;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+}
+#table-box {
+  display: flex;
+}
+#table-box thead {
+  margin: 10px 20px;
+}
+.thead-tr {
+  margin: 10px 20px;
+  padding: 4px 10px;
+}
+.thead-tr th {
+  /* margin: 10px 20px; */
+  padding: 4px 10px;
+}
+table,
+th,
+td {
+  border: 1px solid;
+  padding: 10px 10px;
+  margin: 10px 10px;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+input[type=text],input[type=number],input[type=email], select, textarea{
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  resize: vertical;
+}
+button{
+  background-color: rgb(87, 173, 230);
+  width: 180px;
+  display: block;
+  margin: 0px auto;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.container{
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 10px 25px;
+  display: flex;
+  width: 100%;
+  margin: 10px auto;
+}      
+.container h1{
+  color: blue;
+  margin-top: 10px;
+  text-align: center;
+}
+.up-file{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 30px;
+}
+.btn-self{
+  display: flex;
+  justify-content: center;
+}
+.btn-self input{
+   border-radius: 3px;
+   background-color: rgb(28, 68, 83);
+   padding: 8px 35px;
+   color: white;
+   outline: none;
+}
+.self-container h1{
+  color: blue;
+  margin-top: 10px;
+  text-align: center;
+}
+.self-container{
+  border: 3px solid black;
+   margin: 100px auto;
+   width: 50%;
+   padding: 12px 20px;
+   border-radius: 5px;
+}

@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', type='text/css', href='feed.css')
+
+  body
+    block content
+      if success != ''
+        .alert.alert-success(role='alert')
+          | Success!
+          | #{success}
+    .self-container
+      h1= title
+      form(role='form', action='/upload', method='post', enctype='multipart/form-data')
+        .form-group.up-file
+            label(for='name') Upload File:
+            input(type='file', name='file')
+        .form-group.btn-self
+            input(type='submit', name='uploadimage', value='Upload')
+      
+    .container
+      div.row
+        if records.length > 0
+          each user in records
+            .col-md-4
+              img(src=`/uploads/${user.imageName}`, alt='Uploaded Image', style='width:100%;margin:5px auto;')
+        else
+          p No records found
+
+      

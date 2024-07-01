@@ -1,0 +1,37 @@
+
+html
+  head
+    title=title
+    link(rel='stylesheet', href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel="stylesheet", href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css")
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel='stylesheet', type='text/css', href='feed.css')
+
+    
+
+
+  body
+    block content
+      div.container  
+       h1 #{title}   
+       form(role='form' method='post' action='/update/')
+          input(type='hidden' name='id' value=`${records._id}`)
+          div.form-group
+              label(for='name') Name:
+              input#name.form-control(type='text', placeholder='name' name='name')
+          div.form-group
+              label(for='email') Email:
+              input#email.form-control(type='email', placeholder='name@email.com' name='email')
+          div.form-group
+              label(for='etype') Etype:
+              input#eype.form-control(type='text', placeholder='Enter employee type' name='etype')
+          div.form-group
+              label(for='hourlyrate') Hourly Rate:
+              input#hourlyrate.form-control(type='number', placeholder='Enter Hourly Rate' name='hourlyrate')
+          div.form-group
+              label(for='totalHour') Total Hour:
+              input#totalHour.form-control(type='number', placeholder='Enter Total Hour.' name='totalHour')
+          button.btn.btn-primary(type="submit", name="Submit",value="Submit") Submit
